@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+buildscript {
+  repositories {
+    flatDir dirs: '/usr/local/Cellar/proguard/4.11/libexec'
+  }
+  dependencies {
+    classpath ':proguard:'
+  }
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': "App"
+  }
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+  configuration 'proguard.txt'
+  injars 'build/libs/proguard-gradle-example.jar'
+  outjars 'build/libs/proguard-gradle-example.out.jar'
+}
