@@ -1,8 +1,14 @@
+# Include java runtime classes
 -libraryjars  <java.home>/lib/rt.jar
+
+# Output a source map file
 -printmapping proguard.map
 
--renamesourcefileattribute SourceFile
--keepattributes SourceFile,LineNumberTable
+# Keep filenames and line numbers
+-keepattributes SourceFile, LineNumberTable
+
+# Disable certain proguard optimizations which remove stackframes (same as Android defaults)
+-optimizations !method/inlining/*
 
 -keep public class * {
     public protected *;

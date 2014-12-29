@@ -5,7 +5,7 @@ public class App {
         System.out.println("Hello world");
 
         Crash crash = new Crash();
-        crash.crash();
+        crash.grandparentOfCrash();
 
         System.out.println("Goodbye world");
     }

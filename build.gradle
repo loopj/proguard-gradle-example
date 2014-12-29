@@ -11,12 +11,13 @@ buildscript {
 
 jar {
   manifest {
-    attributes 'Main-Class': "App"
+    attributes 'Main-Class': "com.loopj.example.App"
   }
 }
 
 task proguard(type: proguard.gradle.ProGuardTask) {
   configuration 'proguard.txt'
+
   injars 'build/libs/proguard-gradle-example.jar'
   outjars 'build/libs/proguard-gradle-example.out.jar'
 }

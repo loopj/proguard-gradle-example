@@ -1,11 +1,19 @@
 package com.loopj.example;
 
-public class Crash {
+class Crash {
     public Crash() {
 
     }
 
-    public void crash() {
+    private void crash() {
         throw new RuntimeException("Something broke");
+    }
+
+    private void parentOfCrash() {
+        crash();
+    }
+
+    public void grandparentOfCrash() {
+        parentOfCrash();
     }
 }
