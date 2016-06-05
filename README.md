@@ -5,7 +5,7 @@ Building
 --------
 
 ```shell
-./gradlew clean build proguard
+./gradlew clean proguard
 ```
 
 Running

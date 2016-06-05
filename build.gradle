@@ -10,15 +10,20 @@ buildscript {
   }
 }
 
+ext {
+  jarName = "proguard-gradle-example"
+}
+
 jar {
+  baseName = jarName
   manifest {
     attributes 'Main-Class': "com.loopj.example.App"
   }
 }
 
-task proguard(type: proguard.gradle.ProGuardTask) {
+task proguard(type: proguard.gradle.ProGuardTask, dependsOn: build) {
   configuration 'proguard.txt'
 
-  injars 'build/libs/proguard-gradle-example.jar'
-  outjars 'build/libs/proguard-gradle-example.out.jar'
+  injars "$buildDir/libs/${jarName}.jar"
+  outjars "$buildDir/libs/${jarName}.out.jar"
 }
