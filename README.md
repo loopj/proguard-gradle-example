@@ -26,6 +26,6 @@ Outputs
 
 Proguard Version
 -------
-The inner progurd version is 5.2.1
+The progurd version in folder **progurad/lib** is 5.2.1
 Download at [http://proguard.sourceforge.net/downloads.html](http://proguard.sourceforge.net/downloads.html)
 
