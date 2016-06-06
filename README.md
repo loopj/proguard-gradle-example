@@ -1,5 +1,6 @@
 Example Java App with Proguard
 ==============================
+[![Build Status](https://travis-ci.org/gengjiawen/proguard-gradle-example.svg?branch=master)](https://travis-ci.org/gengjiawen/proguard-gradle-example)
 
 Building
 --------
