@@ -1,23 +1,28 @@
 apply plugin: 'java'
 
 buildscript {
-  repositories {
-    flatDir dirs: '/usr/local/Cellar/proguard/4.11/libexec'
-  }
-  dependencies {
-    classpath ':proguard:'
-  }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'net.sf.proguard:proguard-gradle:5.2.1'
+    }
+}
+
+ext {
+    jarName = "proguard-gradle-example"
 }
 
 jar {
-  manifest {
-    attributes 'Main-Class': "com.loopj.example.App"
-  }
+    baseName = jarName
+    manifest {
+        attributes 'Main-Class': "com.loopj.example.App"
+    }
 }
 
-task proguard(type: proguard.gradle.ProGuardTask) {
-  configuration 'proguard.txt'
+task proguard(type: proguard.gradle.ProGuardTask, dependsOn: build) {
+    configuration 'proguard.txt'
 
-  injars 'build/libs/proguard-gradle-example.jar'
-  outjars 'build/libs/proguard-gradle-example.out.jar'
+    injars "$buildDir/libs/${jarName}.jar"
+    outjars "$buildDir/libs/${jarName}.out.jar"
 }
