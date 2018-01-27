@@ -2,7 +2,8 @@ apply plugin: 'java'
 
 buildscript {
   repositories {
-    flatDir dirs: '/usr/local/Cellar/proguard/4.11/libexec'
+    // Assume proguard is installed via 'brew install proguard'
+    flatDir dirs: '/usr/local/Cellar/proguard/5.3.3/libexec'
   }
   dependencies {
     classpath ':proguard:'
